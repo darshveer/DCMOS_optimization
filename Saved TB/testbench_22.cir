@@ -1,0 +1,78 @@
+* Auto-testbench (planar graph mapped to RO grid)
+
+.include "ptm_45nm_lp.l"
+.include "inv.subckt"
+.include "nand.subckt"
+.include "ring_osc.subckt"
+.include "coupling.subckt"
+.include "network_4_4.subckt"
+
+Xdut EN_RO_0_0 EN_RO_0_1 EN_RO_0_2 EN_RO_0_3 EN_RO_1_0 EN_RO_1_1 EN_RO_1_2 EN_RO_1_3 EN_RO_2_0 EN_RO_2_1 EN_RO_2_2 EN_RO_2_3 EN_RO_3_0 EN_RO_3_1 EN_RO_3_2 EN_RO_3_3 EN_C_0_0__0_1 EN_C_0_0__1_0 EN_C_0_1__0_2 EN_C_0_1__1_0 EN_C_0_1__1_1 EN_C_0_2__0_3 EN_C_0_2__1_1 EN_C_0_2__1_2 EN_C_0_3__1_2 EN_C_0_3__1_3 EN_C_1_0__1_1 EN_C_1_0__2_0 EN_C_1_0__2_1 EN_C_1_1__1_2 EN_C_1_1__2_1 EN_C_1_1__2_2 EN_C_1_2__1_3 EN_C_1_2__2_2 EN_C_1_2__2_3 EN_C_1_3__2_3 EN_C_2_0__2_1 EN_C_2_0__3_0 EN_C_2_1__2_2 EN_C_2_1__3_0 EN_C_2_1__3_1 EN_C_2_2__2_3 EN_C_2_2__3_1 EN_C_2_2__3_2 EN_C_2_3__3_2 EN_C_2_3__3_3 EN_C_3_0__3_1 EN_C_3_1__3_2 EN_C_3_2__3_3 N_0_0_1 N_0_1_1 N_0_2_1 N_0_3_1 N_1_0_1 N_1_1_1 N_1_2_1 N_1_3_1 N_2_0_1 N_2_1_1 N_2_2_1 N_2_3_1 N_3_0_1 N_3_1_1 N_3_2_1 N_3_3_1 vdd gnd RING_OSC_NETWORK
+
+* RO enables
+V_EN_RO_0_0 EN_RO_0_0 gnd 0
+V_EN_RO_0_1 EN_RO_0_1 gnd 0
+V_EN_RO_0_2 EN_RO_0_2 gnd 1
+V_EN_RO_0_3 EN_RO_0_3 gnd 1
+V_EN_RO_1_0 EN_RO_1_0 gnd 1
+V_EN_RO_1_1 EN_RO_1_1 gnd 1
+V_EN_RO_1_2 EN_RO_1_2 gnd 1
+V_EN_RO_1_3 EN_RO_1_3 gnd 0
+V_EN_RO_2_0 EN_RO_2_0 gnd 1
+V_EN_RO_2_1 EN_RO_2_1 gnd 1
+V_EN_RO_2_2 EN_RO_2_2 gnd 1
+V_EN_RO_2_3 EN_RO_2_3 gnd 0
+V_EN_RO_3_0 EN_RO_3_0 gnd 0
+V_EN_RO_3_1 EN_RO_3_1 gnd 1
+V_EN_RO_3_2 EN_RO_3_2 gnd 1
+V_EN_RO_3_3 EN_RO_3_3 gnd 0
+
+* Coupler enables
+V_EN_C_0_0__0_1 EN_C_0_0__0_1 gnd 0
+V_EN_C_0_0__1_0 EN_C_0_0__1_0 gnd 0
+V_EN_C_0_1__0_2 EN_C_0_1__0_2 gnd 0
+V_EN_C_0_1__1_0 EN_C_0_1__1_0 gnd 0
+V_EN_C_0_1__1_1 EN_C_0_1__1_1 gnd 0
+V_EN_C_0_2__0_3 EN_C_0_2__0_3 gnd 1
+V_EN_C_0_2__1_1 EN_C_0_2__1_1 gnd 1
+V_EN_C_0_2__1_2 EN_C_0_2__1_2 gnd 1
+V_EN_C_0_3__1_2 EN_C_0_3__1_2 gnd 1
+V_EN_C_0_3__1_3 EN_C_0_3__1_3 gnd 0
+V_EN_C_1_0__1_1 EN_C_1_0__1_1 gnd 1
+V_EN_C_1_0__2_0 EN_C_1_0__2_0 gnd 1
+V_EN_C_1_0__2_1 EN_C_1_0__2_1 gnd 0
+V_EN_C_1_1__1_2 EN_C_1_1__1_2 gnd 1
+V_EN_C_1_1__2_1 EN_C_1_1__2_1 gnd 1
+V_EN_C_1_1__2_2 EN_C_1_1__2_2 gnd 1
+V_EN_C_1_2__1_3 EN_C_1_2__1_3 gnd 0
+V_EN_C_1_2__2_2 EN_C_1_2__2_2 gnd 0
+V_EN_C_1_2__2_3 EN_C_1_2__2_3 gnd 0
+V_EN_C_1_3__2_3 EN_C_1_3__2_3 gnd 0
+V_EN_C_2_0__2_1 EN_C_2_0__2_1 gnd 1
+V_EN_C_2_0__3_0 EN_C_2_0__3_0 gnd 0
+V_EN_C_2_1__2_2 EN_C_2_1__2_2 gnd 0
+V_EN_C_2_1__3_0 EN_C_2_1__3_0 gnd 0
+V_EN_C_2_1__3_1 EN_C_2_1__3_1 gnd 0
+V_EN_C_2_2__2_3 EN_C_2_2__2_3 gnd 0
+V_EN_C_2_2__3_1 EN_C_2_2__3_1 gnd 1
+V_EN_C_2_2__3_2 EN_C_2_2__3_2 gnd 1
+V_EN_C_2_3__3_2 EN_C_2_3__3_2 gnd 0
+V_EN_C_2_3__3_3 EN_C_2_3__3_3 gnd 0
+V_EN_C_3_0__3_1 EN_C_3_0__3_1 gnd 0
+V_EN_C_3_1__3_2 EN_C_3_1__3_2 gnd 1
+V_EN_C_3_2__3_3 EN_C_3_2__3_3 gnd 0
+
+VDD vdd gnd 1.0
+
+.control
+save time N_0_0_1 N_0_1_1 N_0_2_1 N_0_3_1 N_1_0_1 N_1_1_1 N_1_2_1 N_1_3_1 N_2_0_1 N_2_1_1 N_2_2_1 N_2_3_1 N_3_0_1 N_3_1_1 N_3_2_1 N_3_3_1
+tran 0.1ns 5us uic
+set filetype=ascii
+set wr_singlescale
+set wr_vecnames
+set csvdelim=comma
+wrdata output_nodes.csv time N_0_0_1 N_0_1_1 N_0_2_1 N_0_3_1 N_1_0_1 N_1_1_1 N_1_2_1 N_1_3_1 N_2_0_1 N_2_1_1 N_2_2_1 N_2_3_1 N_3_0_1 N_3_1_1 N_3_2_1 N_3_3_1
+quit
+.endc
+
+.end
