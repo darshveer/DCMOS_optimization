@@ -2,9 +2,10 @@ import re
 import sys
 import matplotlib.pyplot as plt
 import csv
+import math
 
 # -------------------------------------------------------------------
-# Load signum CSV (Node,Signum)
+# Load signum CSV (Node,Signum) — now handles NaN safely
 # -------------------------------------------------------------------
 def load_signum_csv(csv_file):
     signum = {}
@@ -12,12 +13,28 @@ def load_signum_csv(csv_file):
         reader = csv.DictReader(f)
         for row in reader:
             name = row["Node"]
-            val = int(row["Signum"])
+            raw_val = row["Signum"].strip()
+
             # Node naming like N_2_3_1 → extract (2,3)
             m = re.match(r"N_(\d+)_(\d+)_\d+", name)
-            if m:
-                r, c = map(int, m.groups())
-                signum[(r, c)] = val
+            if not m:
+                continue
+
+            r, c = map(int, m.groups())
+
+            # ---------- NaN Handling ----------
+            # If empty, nan, or not an int, store None → colored gray
+            try:
+                if raw_val.lower() == "nan" or raw_val == "":
+                    val = None
+                else:
+                    v = float(raw_val)
+                    val = int(v) if not math.isnan(v) else None
+            except:
+                val = None
+
+            signum[(r, c)] = val
+
     return signum
 
 
@@ -48,7 +65,7 @@ def parse_enables(enable_file):
 
 
 # -------------------------------------------------------------------
-# Parse network netlist for RO nodes and all possible edges
+# Parse network netlist for RO nodes and edges
 # -------------------------------------------------------------------
 def parse_network(net_file):
     ro_positions = []
@@ -78,7 +95,8 @@ def parse_network(net_file):
 # Hex-grid coordinates
 # -------------------------------------------------------------------
 def hex_position(r, c, size=1.0):
-    dx = (3**0.5) * size
+    import math
+    dx = (math.sqrt(3)) * size
     dy = 1.5 * size
     x = c * dx + (r % 2) * (dx / 2)
     y = r * dy
@@ -86,7 +104,7 @@ def hex_position(r, c, size=1.0):
 
 
 # -------------------------------------------------------------------
-# Draw final network with signum-colored nodes
+# Draw final network with signum-colored nodes (NaN → gray)
 # -------------------------------------------------------------------
 def draw_network(ro_positions, edges, ro_enable, c_enable, signum_map):
     plt.figure(figsize=(14, 10))
@@ -94,7 +112,6 @@ def draw_network(ro_positions, edges, ro_enable, c_enable, signum_map):
     # Enabled ROs only
     active_ros = [p for p in ro_positions if ro_enable.get(p, 0) == 1]
 
-    # Position map
     pos_map = {p: hex_position(*p) for p in active_ros}
 
     # Draw enabled edges
@@ -108,17 +125,17 @@ def draw_network(ro_positions, edges, ro_enable, c_enable, signum_map):
                 x2, y2 = pos_map[b]
                 plt.plot([x1, x2], [y1, y2], '-', color='black', linewidth=1)
 
-    # Draw nodes with signum color
+    # Draw nodes
     for (r, c), (x, y) in pos_map.items():
 
         sig = signum_map.get((r, c), None)
 
-        if sig == 1:
+        if sig == 1:            # +1 phase → red
             color = "red"
-        elif sig == -1:
+        elif sig == -1:         # -1 phase → blue
             color = "blue"
-        else:
-            color = "gray"  # fallback
+        else:                   # NaN or missing → gray
+            color = "gray"
 
         plt.scatter([x], [y], s=240, color=color, edgecolors='black')
         plt.text(x, y, f"{r},{c}", ha='center', va='center', color='white')
@@ -130,7 +147,7 @@ def draw_network(ro_positions, edges, ro_enable, c_enable, signum_map):
 
 
 # -------------------------------------------------------------------
-# MAIN — now takes 3 files: enables, network, signum CSV
+# MAIN
 # -------------------------------------------------------------------
 if __name__ == "__main__":
     if len(sys.argv) != 4:

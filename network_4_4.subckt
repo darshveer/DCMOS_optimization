@@ -1,0 +1,60 @@
+.include "ptm_45nm_lp.l"
+.include "inv.subckt"
+.include "nand.subckt"
+.include "ring_osc.subckt"
+.include "coupling.subckt"
+
+.subckt RING_OSC_NETWORK EN_RO_0_0 EN_RO_0_1 EN_RO_0_2 EN_RO_0_3 EN_RO_1_0 EN_RO_1_1 EN_RO_1_2 EN_RO_1_3 EN_RO_2_0 EN_RO_2_1 EN_RO_2_2 EN_RO_2_3 EN_RO_3_0 EN_RO_3_1 EN_RO_3_2 EN_RO_3_3 EN_C_0_0__0_1 EN_C_0_0__1_0 EN_C_0_1__0_2 EN_C_0_1__1_0 EN_C_0_1__1_1 EN_C_0_2__0_3 EN_C_0_2__1_1 EN_C_0_2__1_2 EN_C_0_3__1_2 EN_C_0_3__1_3 EN_C_1_0__1_1 EN_C_1_0__2_0 EN_C_1_0__2_1 EN_C_1_1__1_2 EN_C_1_1__2_1 EN_C_1_1__2_2 EN_C_1_2__1_3 EN_C_1_2__2_2 EN_C_1_2__2_3 EN_C_1_3__2_3 EN_C_2_0__2_1 EN_C_2_0__3_0 EN_C_2_1__2_2 EN_C_2_1__3_0 EN_C_2_1__3_1 EN_C_2_2__2_3 EN_C_2_2__3_1 EN_C_2_2__3_2 EN_C_2_3__3_2 EN_C_2_3__3_3 EN_C_3_0__3_1 EN_C_3_1__3_2 EN_C_3_2__3_3 N_0_0_1 N_0_1_1 N_0_2_1 N_0_3_1 N_1_0_1 N_1_1_1 N_1_2_1 N_1_3_1 N_2_0_1 N_2_1_1 N_2_2_1 N_2_3_1 N_3_0_1 N_3_1_1 N_3_2_1 N_3_3_1 vdd gnd
+
+XRO_0_0 N_0_0_1 N_0_0_2 N_0_0_3 N_0_0_4 N_0_0_5 N_0_0_6 N_0_0_7 EN_RO_0_0 vdd gnd RING_OSC
+XRO_0_1 N_0_1_1 N_0_1_2 N_0_1_3 N_0_1_4 N_0_1_5 N_0_1_6 N_0_1_7 EN_RO_0_1 vdd gnd RING_OSC
+XRO_0_2 N_0_2_1 N_0_2_2 N_0_2_3 N_0_2_4 N_0_2_5 N_0_2_6 N_0_2_7 EN_RO_0_2 vdd gnd RING_OSC
+XRO_0_3 N_0_3_1 N_0_3_2 N_0_3_3 N_0_3_4 N_0_3_5 N_0_3_6 N_0_3_7 EN_RO_0_3 vdd gnd RING_OSC
+XRO_1_0 N_1_0_1 N_1_0_2 N_1_0_3 N_1_0_4 N_1_0_5 N_1_0_6 N_1_0_7 EN_RO_1_0 vdd gnd RING_OSC
+XRO_1_1 N_1_1_1 N_1_1_2 N_1_1_3 N_1_1_4 N_1_1_5 N_1_1_6 N_1_1_7 EN_RO_1_1 vdd gnd RING_OSC
+XRO_1_2 N_1_2_1 N_1_2_2 N_1_2_3 N_1_2_4 N_1_2_5 N_1_2_6 N_1_2_7 EN_RO_1_2 vdd gnd RING_OSC
+XRO_1_3 N_1_3_1 N_1_3_2 N_1_3_3 N_1_3_4 N_1_3_5 N_1_3_6 N_1_3_7 EN_RO_1_3 vdd gnd RING_OSC
+XRO_2_0 N_2_0_1 N_2_0_2 N_2_0_3 N_2_0_4 N_2_0_5 N_2_0_6 N_2_0_7 EN_RO_2_0 vdd gnd RING_OSC
+XRO_2_1 N_2_1_1 N_2_1_2 N_2_1_3 N_2_1_4 N_2_1_5 N_2_1_6 N_2_1_7 EN_RO_2_1 vdd gnd RING_OSC
+XRO_2_2 N_2_2_1 N_2_2_2 N_2_2_3 N_2_2_4 N_2_2_5 N_2_2_6 N_2_2_7 EN_RO_2_2 vdd gnd RING_OSC
+XRO_2_3 N_2_3_1 N_2_3_2 N_2_3_3 N_2_3_4 N_2_3_5 N_2_3_6 N_2_3_7 EN_RO_2_3 vdd gnd RING_OSC
+XRO_3_0 N_3_0_1 N_3_0_2 N_3_0_3 N_3_0_4 N_3_0_5 N_3_0_6 N_3_0_7 EN_RO_3_0 vdd gnd RING_OSC
+XRO_3_1 N_3_1_1 N_3_1_2 N_3_1_3 N_3_1_4 N_3_1_5 N_3_1_6 N_3_1_7 EN_RO_3_1 vdd gnd RING_OSC
+XRO_3_2 N_3_2_1 N_3_2_2 N_3_2_3 N_3_2_4 N_3_2_5 N_3_2_6 N_3_2_7 EN_RO_3_2 vdd gnd RING_OSC
+XRO_3_3 N_3_3_1 N_3_3_2 N_3_3_3 N_3_3_4 N_3_3_5 N_3_3_6 N_3_3_7 EN_RO_3_3 vdd gnd RING_OSC
+
+XCPL_0_0__0_1 EN_C_0_0__0_1 N_0_0_1 N_0_1_3 vdd gnd COUPLING
+XCPL_0_0__1_0 EN_C_0_0__1_0 N_0_0_1 N_1_0_3 vdd gnd COUPLING
+XCPL_0_1__0_2 EN_C_0_1__0_2 N_0_1_1 N_0_2_3 vdd gnd COUPLING
+XCPL_0_1__1_0 EN_C_0_1__1_0 N_0_1_1 N_1_0_3 vdd gnd COUPLING
+XCPL_0_1__1_1 EN_C_0_1__1_1 N_0_1_1 N_1_1_3 vdd gnd COUPLING
+XCPL_0_2__0_3 EN_C_0_2__0_3 N_0_2_1 N_0_3_3 vdd gnd COUPLING
+XCPL_0_2__1_1 EN_C_0_2__1_1 N_0_2_1 N_1_1_3 vdd gnd COUPLING
+XCPL_0_2__1_2 EN_C_0_2__1_2 N_0_2_1 N_1_2_3 vdd gnd COUPLING
+XCPL_0_3__1_2 EN_C_0_3__1_2 N_0_3_1 N_1_2_3 vdd gnd COUPLING
+XCPL_0_3__1_3 EN_C_0_3__1_3 N_0_3_1 N_1_3_3 vdd gnd COUPLING
+XCPL_1_0__1_1 EN_C_1_0__1_1 N_1_0_1 N_1_1_3 vdd gnd COUPLING
+XCPL_1_0__2_0 EN_C_1_0__2_0 N_1_0_1 N_2_0_3 vdd gnd COUPLING
+XCPL_1_0__2_1 EN_C_1_0__2_1 N_1_0_1 N_2_1_3 vdd gnd COUPLING
+XCPL_1_1__1_2 EN_C_1_1__1_2 N_1_1_1 N_1_2_3 vdd gnd COUPLING
+XCPL_1_1__2_1 EN_C_1_1__2_1 N_1_1_1 N_2_1_3 vdd gnd COUPLING
+XCPL_1_1__2_2 EN_C_1_1__2_2 N_1_1_1 N_2_2_3 vdd gnd COUPLING
+XCPL_1_2__1_3 EN_C_1_2__1_3 N_1_2_1 N_1_3_3 vdd gnd COUPLING
+XCPL_1_2__2_2 EN_C_1_2__2_2 N_1_2_1 N_2_2_3 vdd gnd COUPLING
+XCPL_1_2__2_3 EN_C_1_2__2_3 N_1_2_1 N_2_3_3 vdd gnd COUPLING
+XCPL_1_3__2_3 EN_C_1_3__2_3 N_1_3_1 N_2_3_3 vdd gnd COUPLING
+XCPL_2_0__2_1 EN_C_2_0__2_1 N_2_0_1 N_2_1_3 vdd gnd COUPLING
+XCPL_2_0__3_0 EN_C_2_0__3_0 N_2_0_1 N_3_0_3 vdd gnd COUPLING
+XCPL_2_1__2_2 EN_C_2_1__2_2 N_2_1_1 N_2_2_3 vdd gnd COUPLING
+XCPL_2_1__3_0 EN_C_2_1__3_0 N_2_1_1 N_3_0_3 vdd gnd COUPLING
+XCPL_2_1__3_1 EN_C_2_1__3_1 N_2_1_1 N_3_1_3 vdd gnd COUPLING
+XCPL_2_2__2_3 EN_C_2_2__2_3 N_2_2_1 N_2_3_3 vdd gnd COUPLING
+XCPL_2_2__3_1 EN_C_2_2__3_1 N_2_2_1 N_3_1_3 vdd gnd COUPLING
+XCPL_2_2__3_2 EN_C_2_2__3_2 N_2_2_1 N_3_2_3 vdd gnd COUPLING
+XCPL_2_3__3_2 EN_C_2_3__3_2 N_2_3_1 N_3_2_3 vdd gnd COUPLING
+XCPL_2_3__3_3 EN_C_2_3__3_3 N_2_3_1 N_3_3_3 vdd gnd COUPLING
+XCPL_3_0__3_1 EN_C_3_0__3_1 N_3_0_1 N_3_1_3 vdd gnd COUPLING
+XCPL_3_1__3_2 EN_C_3_1__3_2 N_3_1_1 N_3_2_3 vdd gnd COUPLING
+XCPL_3_2__3_3 EN_C_3_2__3_3 N_3_2_1 N_3_3_3 vdd gnd COUPLING
+
+.ends RING_OSC_NETWORK

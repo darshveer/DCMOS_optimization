@@ -1,2 +1,0 @@
-# DCMOS_optimization
-
