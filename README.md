@@ -1,4 +1,4 @@
-[README-updated.md](https://github.com/user-attachments/files/24103895/README-updated.md)
+
 # COP Oscillator: Ring Oscillator-Based Ising Solver
 
 A VLSI implementation of a probabilistic compute fabric using coupled ring oscillators to solve combinatorial optimization problems (COPs) such as the Max-Cut problem.
